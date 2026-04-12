@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TribeFitness Membership Registration</title>
+<link rel="stylesheet" href="style1.css">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@4.7.0/fonts/remixicon.css" rel="stylesheet">
+<style>
+.payment-section { display: none; margin-top: 15px; }
+#preview img, #preview a { display:block; margin-top:5px; max-width:150px; }
+</style>
+</head>
+<body class="register">
+
+<header>
+<nav class="nav">
+<div class="container">
+    <div class="left-side-header">
+        <a href="index.html" class="logo"><img src="resources/image/Designer.png" alt="logo"></a>
+        <a href="index.html" class="head">FitnessTribe</a>
+    </div>
+    <div class="hamburger" id="hamburger"><i class="ri-menu-line"></i></div>
+    <div class="right-side-header nav-links" id="nav-links">
+        <a href="index.html">Home</a>
+        <a href="membership.html">Membership</a>
+        <a href="PHP/shop.php">Shop</a>
+        <a href="about-us.html">About Us</a>
+    </div>
+</div>
+</nav>
+</header>
+
+<div class="container">
+<form class="register-form" action="PHP/register.php" method="POST" enctype="multipart/form-data">
+
+<h2>Membership Registration</h2>
+
+<div class="row-register">
+    <div>
+        <label>First Name:</label>
+        <input type="text" name="first_name" required>
+    </div>
+    <div>
+        <label>Last Name:</label>
+        <input type="text" name="last_name" required>
+    </div>
+</div>
+
+<label>Email:</label>
+<input type="email" name="email" required>
+
+<label>Phone:</label>
+<input type="text" name="phone" required>
+
+<!-- Membership Type -->
+ <p class="membership_type">Membership Type: Couple</p>
+ <input type="hidden" name="membership_type" value="couple">
+<label>Payment Method:</label>
+<select name="payment_method" id="payment_method" required>
+    <option value="">Select</option>
+    <option value="card">Card</option>
+    <option value="bank-transfer">Bank Transfer</option>
+    <option value="cash-on-delivery">Cash On Delivery</option>
+</select>
+
+<!-- Card Payment -->
+<div id="card" class="payment-section">
+    <label>Card Number:</label>
+    <input type="text" name="card_number" maxlength="16">
+    <label>Expiry Date:</label>
+    <input type="month" name="expiry_date">
+    <label>CVV:</label>
+    <input type="text" name="cvv" maxlength="3">
+</div>
+
+<!-- Online Bank Transfer -->
+<div id="bank-transfer" class="payment-section">
+    <label>Bank Account:</label>
+    <input type="text" name="bank_account">
+    <label>Upload Payment Proof (Image or PDF):</label>
+    <input type="file" name="payment_proof" id="payment_proof" accept="image/*,.pdf">
+    <div id="preview"></div>
+    <p class="instruction">Upload screenshot or receipt for bank transfer.</p>
+</div>
+
+<button type="submit" class="btn-submit">Register</button>
+</form>
+</div>
+
+<script>
+const paymentMethod = document.getElementById('payment_method');
+const cardSection = document.getElementById('card');
+const onlineSection = document.getElementById('bank-transfer');
+const proofInput = document.getElementById('payment_proof');
+const previewDiv = document.getElementById('preview');
+
+paymentMethod.addEventListener('change', function(){
+    const selected = this.value;
+    cardSection.style.display = (selected==='card') ? 'block' : 'none';
+    onlineSection.style.display = (selected==='bank-transfer') ? 'block' : 'none';
+});
+
+// Preview uploaded proof
+proofInput.addEventListener('change', function(){
+    previewDiv.innerHTML = '';
+    const file = this.files[0];
+    if(file){
+        if(file.type.startsWith('image/')){
+            const img = document.createElement('img');
+            img.src = URL.createObjectURL(file);
+            previewDiv.appendChild(img);
+        } else {
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(file);
+            link.textContent = file.name;
+            link.target = "_blank";
+            previewDiv.appendChild(link);
+        }
+    }
+});
+</script>
+
+</body>
+</html>

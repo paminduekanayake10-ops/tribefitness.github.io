@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TribeFitness Group Class Registration</title>
+    <link rel="stylesheet" href="style1.css">
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.7.0/fonts/remixicon.css"
+    rel="stylesheet"
+/>
+
+</head>
+<body class="register">
+
+    <header>
+    <nav class="nav">
+        <div class="container">
+            <!-- Left Side -->
+            <div class="left-side-header">
+                <a href="index.html" class="logo">
+                    <img src="resources/image/Designer.png" alt="logo">
+                </a>
+                <a href="index.html" class="head">FitnessTribe</a>
+            </div>
+
+            <!-- Hamburger -->
+            <div class="hamburger" id="hamburger">
+                <i class="ri-menu-line"></i>
+            </div>
+
+            <!-- Navigation Links -->
+            <div class="right-side-header nav-links" id="nav-links">
+                <a href="index.html">Home</a>
+                <a href="membership.html">Membership</a>
+                <a href="PHP/shop.php">Shop</a>
+                <a href="about-us.html">About Us</a>
+            </div>
+        </div>
+    </nav>
+</header>
+
+    <form class="register-form" action="PHP/register.php" method="POST" id="registration-form">
+
+    <h2 class="individual-membership-title"> Group Class Registration</h2>
+    <div class="row-register">
+        <!-- Personal Info -->
+        <div>
+        <label>First Name:</label>
+        <input type="text" name="first_name" required>
+        </div>
+        <div>
+        <label>Last Name:</label>
+        <input type="text" name="last_name" required>
+        </div>
+    </div>
+    <label>Email:</label>
+    <input type="email" name="email" required>
+
+    <label>Phone:</label>
+    <input type="text" name="phone" required>
+
+    <!-- Membership Type -->
+    <p class="membership_type">Membership Type: Group Class</p>
+    <input type="hidden" name="membership_type" value="group-class">
+
+    <!-- Payment Method -->
+    <label>Payment Method:</label>
+    <select name="payment_method" id="payment_method" required>
+        <option value="">Select</option>
+        <option value="online">Online</option>
+        <option value="card">Card</option>
+        <option value="cash-on-delivery">Cash On Delivery</option>
+    </select>
+
+    <!-- Online Payment Section -->
+    <div id="online" class="payment-section" >
+        <label>Reference Number (Receipt):</label>
+        <input type="text" name="online_id">
+
+        <label>Transferred Account:</label>
+        <input type="text" name="bank_account">
+
+        <label>Transferred Time:</label>
+        <input type="datetime-local" name="transfer_time">
+
+    </div>
+
+    <!-- Card Payment Section -->
+    <div id="card" class="payment-section" >
+        <label>Card Number:</label>
+        <input type="text" name="card_number" maxlength="16">
+
+        <label>Expiry Date:</label>
+        <input type="month" name="expiry_date">
+
+        <label>CVV:</label>
+        <input type="text" name="cvv" maxlength="3">
+    </div>
+
+    <button type="submit" class="btn-submit">Register</button>
+</form>
+
+<div class="social-media">
+        <a href="https://www.facebook.com/" target="_blank"><i class="ri-facebook-line"></i></a>
+        <a href="https://www.instagram.com/" target="_blank"><i class="ri-instagram-line"></i></a>
+        <a href="https://x.com/" target="_blank"><i class="ri-twitter-x-fill"></i></a>
+        <a href="https://www.linkedin.com/" target="_blank"><i class="ri-linkedin-box-line"></i></a>
+        <a href="https://www.tiktok.com/" target="_blank"><i class="ri-tiktok-line"></i></a>
+        <a href="https://www.youtube.com/" target="_blank"><i class="ri-youtube-line"></i></a>
+    </div>
+    <footer class="footer">
+    <div class="container2">
+        <div>Copyright © 2025 TribeFitness — Kaduwela • Malabe • Nugegoda</div>
+        <div><small>All rights reserved to TribeFitness PVT. LTD</small></div>
+    </div></footer>
+    
+<script>
+    const paymentSections = document.querySelectorAll('.payment-section');
+
+    document.getElementById('payment_method').addEventListener('change', function() {
+        const selected = this.value;
+
+        // Hide all payment sections
+        paymentSections.forEach(sec => sec.style.display = 'none');
+
+        // Show selected payment section
+        if (selected === 'online') document.getElementById('online').style.display = 'block';
+        if (selected === 'card') document.getElementById('card').style.display = 'block';
+    });
+</script>
+
+</body>
+</html>
