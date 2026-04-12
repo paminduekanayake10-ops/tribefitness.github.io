@@ -1,0 +1,13 @@
+# robots.txt for TribeFitness
+User-agent: *
+Disallow: /PHP/admin/       # restrict admin folder if you have one
+Disallow: /PHP/config/      # restrict config files if any
+Allow:  /index.html
+	/about-us.html
+	/membership.html
+	/PHP/shop.php
+	/robots.txt
+
+
+# Sitemap location
+Sitemap: https://tribefitness.page.gd/index.html

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+ <html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Membership | TribeFitness </title>
+    <link rel="stylesheet" href="style1.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.7.0/fonts/remixicon.css"
+    rel="stylesheet"/>
+    <meta name="Description" content="TribeFitness is specialized  consultants of personal training programs for any person at any range. We operates on Kaduwela, Malabe, Nugegoda.">
+</head>
+
+<body>
+    <header>
+    <nav class="nav">
+        <div class="container">
+            <!-- Left Side -->
+            <div class="left-side-header">
+                <a href="index.html" class="logo">
+                    <img src="resources/image/Designer.png" alt="logo">
+                </a>
+                <a href="index.html" class="head">FitnessTribe</a>
+            </div>
+
+            <!-- Hamburger -->
+            <div class="hamburger" id="hamburger">
+                <i class="ri-menu-line"></i>
+            </div>
+
+            <!-- Navigation Links -->
+            <div class="right-side-header nav-links" id="nav-links">
+                <a href="index.html">Home</a>
+                <a href="membership.html">Membership</a>
+                <a href="PHP/shop.php">Shop</a>
+                <a href="about-us.html">About Us</a>
+            </div>
+        </div>
+    </nav>
+</header>
+
+    <section class="membership-hero">
+    <div class="hero-content">
+        <h1>Join TribeFitness Today!</h1>
+        <p>Choose a plan that fits your lifestyle and start your fitness journey with us.</p>
+       <div class="welcome-row">
+        <a href="#plans" class="join-now">Join Now</a>
+        </div>
+    </div>
+    </section>
+
+    <section id="plans">
+        <h1 class="plan-heading">FitnessTribe Plans</h1>
+        <div class="membership-plans">
+        <div class="plan-box scroll-animation">
+            <h3>Individual Membership</h3>
+            <p class="plan-price">Rs.84000.00 / Yearly</p>
+            <p class="plan-price">Rs.8000.00 / Monthly</p>
+            <ul class="plan-features">
+                <li>Full-Gym Equipment</li>
+                <li>Certrifed-personal Trainers</li>
+                <li>Free meal plan & workout schedulesShower & Changing room facilities</li>
+                <li>Locker room access</li>
+                <li>Ample parking</li>
+                <li>Free Wi-Fi</li>
+                <li>Access to sauna and steam room</li>
+            </ul>
+            <button class="btn-buy1" onclick="window.location.href='individual-membership-form.html'">Join Now</button>
+            </div>
+
+        <div class="plan-box scroll-animation">
+            <h3>Couple Membership</h3>
+            <p>Rs.30000.00 / Yearly</p>
+            <p>Rs.2300.00 / Monthly</p>
+            <ul class="plan-features">
+                <li>Full-Gym Equipment</li>
+                <li>Free meal plan & workout schedulesShower & Changing room facilities</li>
+                <li>Certrifed Trainers</li>
+                <li>Locker room access</li>
+                <li>Free Wi-Fi</li>
+                <li>Ample parking</li>
+            </ul>
+            <button class="btn-buy1" onclick="window.location.href='Couple-membership-form.html'">Join Now</button>
+        </div>
+
+        <div class="plan-box scroll-animation">
+            <h3>Student Membership</h3>
+            <p class="plan-price">Rs.26000.00 / Yearly</p>
+            <p class="plan-price">Rs.2400.00 / Monthly</p>
+            <ul class="plan-features">
+                <li>Full-Gym Equipment</li>
+                <li>Certrifed Trainers</li>
+                <li>Ample parking</li>
+                <li>Changing rooms and wash rooms</li>
+                <li>Free Wi-Fi</li>
+            </ul>
+            <button class="btn-buy1" onclick="window.location.href='student-membership-form.html'">Join Now</button>
+        </div>
+
+        <div class="plan-box scroll-animation">
+            <h3>Group Classes</h3>
+            <p class="plan-price">Rs.18000.00 / Yearly</p>
+            <p class="plan-price">Rs.1700.00 / Monthly</p>
+            <ul class="plan-features">
+                <li>Full-Gym Equipment</li>
+                <li>Certrifed Trainers</li>
+                <li>Free meal plan & workout schedulesShower & Changing room facilities</li>
+                <li>Body assessment</li>
+                <li>Ample parking</li>
+                <li>Free Wi-Fi</li>
+            </ul>
+            <button class="btn-buy1" onclick="window.location.href='group-classes-form.html'">Join Now</button>
+        </div>
+        </div>
+
+    </section>
+    
+    <div class="social-media">
+        <a href="https://www.facebook.com/" target="_blank"><i class="ri-facebook-line"></i></a>
+        <a href="https://www.instagram.com/" target="_blank"><i class="ri-instagram-line"></i></a>
+        <a href="https://x.com/" target="_blank"><i class="ri-twitter-x-fill"></i></a>
+        <a href="https://www.linkedin.com/" target="_blank"><i class="ri-linkedin-box-line"></i></a>
+        <a href="https://www.tiktok.com/" target="_blank"><i class="ri-tiktok-line"></i></a>
+        <a href="https://www.youtube.com/" target="_blank"><i class="ri-youtube-line"></i></a>
+    </div>
+    <footer class="footer">
+    <div class="container2">
+  <div>Copyright © 2025 TribeFitness — Kaduwela • Malabe • Nugegoda</div>
+  <div><small>All rights reserved to TribeFitness PVT. LTD</small></div>
+</div></footer>
+    <script>
+          // -------- Scroll animation (kept as-is) --------
+  const scrollElements = document.querySelectorAll(".scroll-animation");
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+  scrollElements.forEach(el => observer.observe(el));
+
+  // animate product list
+  const products = document.querySelectorAll(".product-box");
+  products.forEach((product, index) => {
+    product.classList.add("scroll-animation");
+    product.style.animation = `backinLeft 2s ease-in-out forwards`;
+    product.style.animationDelay = `${index * 0.5}s`;
+  });
+
+const hamburger = document.getElementById("hamburger");
+const navLinks = document.getElementById("nav-links");
+
+hamburger.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+
+    const icon = hamburger.querySelector("i");
+    icon.classList.toggle("ri-close-line");
+    icon.classList.toggle("ri-menu-line");
+});
+
+// Close menu when clicking any link
+document.querySelectorAll("#nav-links a").forEach(link => {
+    link.addEventListener("click", () => {
+        navLinks.classList.remove("active");
+
+        const icon = hamburger.querySelector("i");
+        icon.classList.remove("ri-close-line");
+        icon.classList.add("ri-menu-line");
+    });
+});
+
+    </script>
+</body>
+</html>

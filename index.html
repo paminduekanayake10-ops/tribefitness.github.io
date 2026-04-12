@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home | TribeFitness</title>
+  <link rel="stylesheet" href="style1.css">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.7.0/fonts/remixicon.css" rel="stylesheet"/>
+  <meta name="description" content="TribeFitness is specialized consultants of personal training programs for any person at any range. We operate in Kaduwela, Malabe, Nugegoda.">
+</head>
+<body>
+
+<header>
+    <nav class="nav">
+        <div class="container">
+            <!-- Left Side -->
+            <div class="left-side-header">
+                <a href="index.html" class="logo">
+                    <img src="resources/image/Designer.png" alt="logo">
+                </a>
+                <a href="index.html" class="head">FitnessTribe</a>
+            </div>
+
+            <!-- Hamburger -->
+            <div class="hamburger" id="hamburger">
+                <i class="ri-menu-line"></i>
+            </div>
+
+            <!-- Navigation Links -->
+            <div class="right-side-header nav-links" id="nav-links">
+                <a href="index.html">Home</a>
+                <a href="membership.html">Membership</a>
+                <a href="PHP/shop.php">Shop</a>
+                <a href="about-us.html">About Us</a>
+            </div>
+        </div>
+    </nav>
+</header>
+  <section class="initial-welcome">
+    <div class="welcome">
+      <h3 class="greeting">Welcome to FitnessTribe</h3>
+      <p class="main-para">We are specialized training consultators for any individual.</p>
+      <div class="welcome-row">
+        <a href="membership.html" class="join-now">Join Now</a>
+        <a href="PHP/shop.php" class="join-now">Buy our supplements</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="social-media">
+    <a href="https://www.facebook.com/" target="_blank"><i class="ri-facebook-line"></i></a>
+    <a href="https://www.instagram.com/" target="_blank"><i class="ri-instagram-line"></i></a>
+    <a href="https://x.com/" target="_blank"><i class="ri-twitter-x-fill"></i></a>
+    <a href="https://www.linkedin.com/" target="_blank"><i class="ri-linkedin-box-line"></i></a>
+    <a href="https://www.tiktok.com/" target="_blank"><i class="ri-tiktok-line"></i></a>
+    <a href="https://www.youtube.com/" target="_blank"><i class="ri-youtube-line"></i></a>
+  </div>
+
+  <footer class="footer">
+    <div class="container2">
+      <a href="/PHP/track_order.php" style="text-decoration: none; color: #fff;">Track Your Order</a></p>
+      <div>Copyright © 2025 TribeFitness — Kaduwela • Malabe • Nugegoda</div>
+      <div><small>All rights reserved to TribeFitness PVT.LTD</small></div>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll animation only
+    const scrollElements = document.querySelectorAll(".scroll-animation");
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+    scrollElements.forEach(el => observer.observe(el));
+
+const hamburger = document.getElementById("hamburger");
+const navLinks = document.getElementById("nav-links");
+
+hamburger.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+
+    const icon = hamburger.querySelector("i");
+    icon.classList.toggle("ri-close-line");
+    icon.classList.toggle("ri-menu-line");
+});
+
+// Close menu when clicking any link
+document.querySelectorAll("#nav-links a").forEach(link => {
+    link.addEventListener("click", () => {
+        navLinks.classList.remove("active");
+
+        const icon = hamburger.querySelector("i");
+        icon.classList.remove("ri-close-line");
+        icon.classList.add("ri-menu-line");
+    });
+});
+
+  </script>
+
+</body>
+</html>
