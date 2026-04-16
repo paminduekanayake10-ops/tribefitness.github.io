@@ -1,0 +1,18 @@
+# TribeFitness Website
+
+This is a fitness website developed as part of my web development learning.
+
+## Features
+- Responsive design
+- Fitness information
+- User-friendly layout
+
+## Technologies Used
+- HTML
+- CSS
+- JavaScript
+- PHP
+- MySQL
+
+## Author
+Pamindu Ekanayake
